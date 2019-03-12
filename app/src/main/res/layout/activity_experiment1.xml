@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/colorPrimary"
+	tools:context=".activities.ExperimentActivity1">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_above="@id/formLL"
+		android:orientation="horizontal">
+		<ImageView
+			android:layout_width="100dp"
+			android:layout_height="40dp"
+			android:layout_marginStart="16dp"
+			android:src="@drawable/ssn_logo"
+			android:tint="@android:color/white"
+			/>
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="bottom"
+			android:textStyle="bold"
+			android:textColor="#ffffff"
+			android:alpha="0.5"
+			android:text="Classrooms"/>
+	</LinearLayout>
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="16dp"
+		android:id="@+id/formLL"
+		android:layout_centerInParent="true"
+		android:orientation="vertical">
+		<android.support.design.widget.TextInputLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="8dp"
+			android:textColorHint="@android:color/white">
+			<EditText
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:hint="Email"
+				android:id="@+id/emailET"
+				android:inputType="textEmailAddress"
+				app:backgroundTint="@android:color/white"
+				android:textColor="@android:color/white"
+				android:textColorHint="@android:color/white" />
+		</android.support.design.widget.TextInputLayout>
+		<android.support.design.widget.TextInputLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			app:passwordToggleEnabled="true"
+			app:passwordToggleTint="@android:color/white"
+			android:textColorHint="@android:color/white">
+			<EditText
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:hint="Password"
+				android:inputType="textPassword"
+				android:id="@+id/passwordET"
+				app:backgroundTint="@android:color/white"
+				android:textColor="@android:color/white"
+				android:textColorHint="@android:color/white" />
+		</android.support.design.widget.TextInputLayout>
+
+	</LinearLayout>
+
+	<Button
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAllCaps="false"
+		android:text="Login"
+		android:id="@+id/loginBTN"
+		android:layout_below="@id/formLL"
+		android:layout_alignParentEnd="true"
+		android:layout_marginEnd="16dp"
+		app:backgroundTint="@android:color/white"
+		android:textColor="@color/colorPrimary"
+		/>
+
+</RelativeLayout>

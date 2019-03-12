@@ -1,0 +1,193 @@
+
+
+### ExperimentActivity11.java
+
+```java
+package me.shrikanthravi.madlab.activities;
+
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TimePicker;
+import android.widget.Toast;
+import android.widget.ToggleButton;
+
+import java.util.Calendar;
+
+import me.shrikanthravi.madlab.R;
+
+public class ExperimentActivity11 extends AppCompatActivity {
+    TimePicker alarmTimePicker;
+    PendingIntent pendingIntent;
+    AlarmManager alarmManager;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_experiment11);
+        //Hiding action bar that displays app name
+        if(getSupportActionBar()!=null) {
+            getSupportActionBar().hide();
+        }
+        alarmTimePicker = (TimePicker) findViewById(R.id.timePicker);
+        alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+    }
+
+    public void OnToggleClicked(View view)
+    {
+        long time;
+        if (((ToggleButton) view).isChecked())
+        {
+            Toast.makeText(ExperimentActivity11.this, "ALARM ON", Toast.LENGTH_SHORT).show();
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(Calendar.HOUR_OF_DAY, alarmTimePicker.getCurrentHour());
+            calendar.set(Calendar.MINUTE, alarmTimePicker.getCurrentMinute());
+            Intent intent = new Intent(this, AlarmReceiver.class);
+            pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
+
+            time=(calendar.getTimeInMillis()-(calendar.getTimeInMillis()%60000));
+            if(System.currentTimeMillis()>time)
+            {
+                if (calendar.AM_PM == 0)
+                    time = time + (1000*60*60*12);
+                else
+                    time = time + (1000*60*60*24);
+            }
+            alarmManager.set(AlarmManager.RTC_WAKEUP, time, pendingIntent);
+        }
+        else
+        {
+            alarmManager.cancel(pendingIntent);
+            Toast.makeText(ExperimentActivity11.this, "ALARM OFF", Toast.LENGTH_SHORT).show();
+        }
+    }
+}
+
+```
+
+### AlarmReceiver.java
+
+```java
+package me.shrikanthravi.madlab.activities;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
+import android.widget.Toast;
+
+public class AlarmReceiver extends BroadcastReceiver
+{
+    @Override
+    public void onReceive(Context context, Intent intent)
+    {
+        Toast.makeText(context, "Alarm! Wake up! Wake up!", Toast.LENGTH_LONG).show();
+        Uri alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
+        if (alarmUri == null)
+        {
+            alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        }
+        Ringtone ringtone = RingtoneManager.getRingtone(context, alarmUri);
+        ringtone.play();
+    }
+}
+
+```
+
+### activity_experiment11.xml
+
+```xml
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:padding="16dp"
+		android:background="@color/colorPrimary"
+		android:textStyle="bold"
+		android:textColor="@android:color/white"
+		android:text="Alarm clock" />
+
+
+	<TimePicker
+		android:id="@+id/timePicker"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center" />
+
+	<ToggleButton
+		android:id="@+id/toggleButton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:layout_margin="20dp"
+		android:checked="false"
+		android:onClick="OnToggleClicked" />
+
+</LinearLayout>
+```
+
+### AndroidManifest.xml
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	package="me.shrikanthravi.madlab">
+
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+	<application
+		android:allowBackup="true"
+		android:icon="@mipmap/ic_launcher"
+		android:label="@string/app_name"
+		android:roundIcon="@mipmap/ic_launcher_round"
+		android:supportsRtl="true"
+		android:theme="@style/AppTheme"
+		android:usesCleartextTraffic="true"
+		tools:ignore="GoogleAppIndexingWarning">
+		<activity android:name=".activities.ExperimentActivity11"></activity>
+		<receiver android:name=".activities.AlarmReceiver" >
+		</receiver>
+		<activity android:name=".activities.ExperimentActivity10" />
+		<activity android:name=".activities.ExperimentActivity6" />
+		<activity android:name=".CodeViewActivity" />
+		<activity android:name=".activities.ExperimentActivity9" />
+		<activity android:name=".activities.ExperimentActivity7" />
+		<activity android:name=".activities.ExperimentActivity8" />
+		<activity android:name=".activities.ExperimentActivity5" />
+		<activity android:name=".HomeActivity">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+
+		<meta-data
+			android:name="preloaded_fonts"
+			android:resource="@array/preloaded_fonts" />
+		<meta-data
+			android:name="com.google.android.geo.API_KEY"
+			android:value="@string/google_maps_key" />
+
+		<activity
+			android:name=".activities.ExperimentActivity1"
+			android:theme="@style/WhiteAccent" />
+		<activity android:name=".activities.ExperimentActivity2" />
+		<activity android:name=".activities.ExperimentActivity3" />
+		<activity android:name=".activities.ExperimentActivity4" />
+	</application>
+
+</manifest>
+```

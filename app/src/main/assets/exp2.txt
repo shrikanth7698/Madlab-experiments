@@ -1,0 +1,92 @@
+
+
+### ExperimentActivity2.java
+
+```java
+package me.shrikanthravi.madlab.activities;
+
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+
+import me.shrikanthravi.madlab.R;
+
+public class ExperimentActivity2 extends AppCompatActivity {
+
+    //Global
+    TextView countTV;
+    FloatingActionButton addFab;
+    int count=0;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_experiment2);
+
+        //Initialization
+        init();
+
+        //Listener for floating action button
+        addFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                count++;
+                countTV.setText("You clicked the floating action button "+String.valueOf(count)+" times");
+            }
+        });
+
+
+    }
+
+    public void init(){
+        //Hiding action bar that displays app name
+        if(getSupportActionBar()!=null) {
+            getSupportActionBar().hide();
+        }
+
+        //Linking xml views with java
+        countTV = findViewById(R.id.countTV);
+        addFab = findViewById(R.id.addFab);
+
+    }
+}
+
+```
+
+### activity_experiment2.xml
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".activities.ExperimentActivity2">
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:padding="16dp"
+		android:background="@color/colorPrimary"
+		android:textStyle="bold"
+		android:textColor="@android:color/white"
+		android:text="Event Listener"/>
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_centerInParent="true"
+		android:id="@+id/countTV"
+		android:text="Click on the floating action bar"/>
+	<android.support.design.widget.FloatingActionButton
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentEnd="true"
+		android:layout_alignParentBottom="true"
+		android:layout_margin="16dp"
+		android:src="@drawable/ic_add_black_24dp"
+		android:id="@+id/addFab"
+		android:backgroundTint="@color/colorPrimary"/>
+</RelativeLayout>
+```

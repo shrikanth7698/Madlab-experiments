@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical" >
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:padding="16dp"
+		android:background="@color/colorPrimary"
+		android:textStyle="bold"
+		android:textColor="@android:color/white"
+		android:text="Alert upon receiving a message" />
+	<EditText
+		android:layout_width="match_parent"
+		android:layout_height="200dp"
+		android:padding="10dp"
+		android:id="@+id/writeET"
+		android:layout_margin="16dp"
+		android:hint="Write something..."
+		android:gravity="start"
+		android:background="@null"/>
+
+	<Button
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAllCaps="false"
+		android:layout_gravity="center"
+		android:id="@+id/notifyBTN"
+		android:text="Notify"/>
+</LinearLayout>

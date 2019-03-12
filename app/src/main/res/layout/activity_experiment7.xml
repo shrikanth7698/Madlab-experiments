@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical" >
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:padding="16dp"
+		android:background="@color/colorPrimary"
+		android:textStyle="bold"
+		android:textColor="@android:color/white"
+		android:text="Multi threading"/>
+
+
+	<ImageView
+		android:id="@+id/imageView"
+		android:layout_width="250dp"
+		android:layout_height="250dp"
+		android:layout_margin="50dp"
+		android:layout_gravity="center" />
+
+	<Button
+		android:id="@+id/button"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_margin="10dp"
+		android:layout_gravity="center"
+		android:text="Load Image 1" />
+
+	<Button
+		android:id="@+id/button2"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_margin="10dp"
+		android:layout_gravity="center"
+		android:text="Load image 2" />
+
+</LinearLayout>

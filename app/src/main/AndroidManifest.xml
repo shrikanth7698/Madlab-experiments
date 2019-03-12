@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	package="me.shrikanthravi.madlab">
+
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+	<application
+		android:allowBackup="true"
+		android:icon="@mipmap/ic_launcher"
+		android:label="@string/app_name"
+		android:roundIcon="@mipmap/ic_launcher_round"
+		android:supportsRtl="true"
+		android:theme="@style/AppTheme"
+		android:usesCleartextTraffic="true"
+		tools:ignore="GoogleAppIndexingWarning">
+		<activity android:name=".activities.ExperimentActivity11"></activity>
+		<receiver android:name=".activities.AlarmReceiver" >
+		</receiver>
+		<activity android:name=".activities.ExperimentActivity10" />
+		<activity android:name=".activities.ExperimentActivity6" />
+		<activity android:name=".CodeViewActivity" />
+		<activity android:name=".activities.ExperimentActivity9" />
+		<activity android:name=".activities.ExperimentActivity7" />
+		<activity android:name=".activities.ExperimentActivity8" />
+		<activity android:name=".activities.ExperimentActivity5" />
+		<activity android:name=".HomeActivity">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+
+		<meta-data
+			android:name="preloaded_fonts"
+			android:resource="@array/preloaded_fonts" />
+		<meta-data
+			android:name="com.google.android.geo.API_KEY"
+			android:value="@string/google_maps_key" />
+
+		<activity
+			android:name=".activities.ExperimentActivity1"
+			android:theme="@style/WhiteAccent" />
+		<activity android:name=".activities.ExperimentActivity2" />
+		<activity android:name=".activities.ExperimentActivity3" />
+		<activity android:name=".activities.ExperimentActivity4" />
+	</application>
+
+</manifest>

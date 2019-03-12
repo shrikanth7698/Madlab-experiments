@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "593567463108",
+    "firebase_url": "https://madlab-11816.firebaseio.com",
+    "project_id": "madlab-11816",
+    "storage_bucket": "madlab-11816.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:593567463108:android:8e24a19cca968688",
+        "android_client_info": {
+          "package_name": "me.shrikanthravi.madlab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "593567463108-14ucdogg8ivtpglap9ns492i0qp7n09o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVgPm9YmVi5okUVz0shy8PPE_tzvhUUKw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
