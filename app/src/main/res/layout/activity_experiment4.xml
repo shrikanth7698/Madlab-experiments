@@ -19,44 +19,97 @@
 			android:textStyle="bold"
 			android:textColor="@android:color/white"
 			android:text="Graphics Primitives"/>
-		<ImageView
+		<me.shrikanthravi.madlab.MyView
 			android:layout_width="match_parent"
-			android:layout_height="400dp"
-			android:id="@+id/graphicsIV"
-			/>
-
+			android:layout_height="match_parent"
+			android:id="@+id/drawingView"/>
 
 	</LinearLayout>
 
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:weightSum="3"
-		android:layout_margin="8dp"
-		android:orientation="horizontal"
-		android:layout_alignParentBottom="true">
-		<Button
+		android:layout_alignParentBottom="true"
+		android:orientation="vertical">
+		<LinearLayout
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="Rectangle"
-			android:textAllCaps="false"
-			android:id="@+id/rectangleBTN"
-			android:layout_weight="1"/>
-		<Button
-			android:layout_width="wrap_content"
+			android:layout_gravity="center"
+			android:orientation="horizontal">
+			<android.support.v7.widget.CardView
+				android:layout_width="45dp"
+				android:layout_height="45dp"
+				android:layout_margin="10dp"
+				android:id="@+id/redColorCV"
+				app:cardCornerRadius="22.5dp"
+				app:cardElevation="0dp">
+				<View
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:background="#FF0000"
+					android:padding="5dp"/>
+			</android.support.v7.widget.CardView>
+
+			<android.support.v7.widget.CardView
+				android:layout_width="45dp"
+				android:layout_height="45dp"
+				android:layout_margin="10dp"
+				android:id="@+id/blueColorCV"
+				app:cardCornerRadius="22.5dp"
+				app:cardElevation="0dp">
+				<View
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:background="#00F3D4"
+					android:padding="5dp" />
+			</android.support.v7.widget.CardView>
+
+			<android.support.v7.widget.CardView
+				android:layout_width="45dp"
+				android:layout_height="45dp"
+				android:layout_margin="10dp"
+				android:id="@+id/yellowColorCV"
+				app:cardCornerRadius="22.5dp"
+				app:cardElevation="0dp">
+				<View
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:background="#FFDD00"
+					android:padding="5dp"/>
+			</android.support.v7.widget.CardView>
+
+
+
+		</LinearLayout>
+		<LinearLayout
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:text="Square"
-			android:id="@+id/squareBTN"
-			android:layout_marginStart="8dp"
-			android:layout_marginEnd="8dp"
-			android:textAllCaps="false"
-			android:layout_weight="1"/>
-		<Button
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textAllCaps="false"
-			android:id="@+id/circleBTN"
-			android:text="Circle"
-			android:layout_weight="1"/>
+			android:weightSum="3"
+			android:layout_margin="8dp"
+			android:orientation="horizontal">
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Rectangle"
+				android:textAllCaps="false"
+				android:id="@+id/rectangleBTN"
+				android:layout_weight="1"/>
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Square"
+				android:id="@+id/squareBTN"
+				android:layout_marginStart="8dp"
+				android:layout_marginEnd="8dp"
+				android:textAllCaps="false"
+				android:layout_weight="1"/>
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textAllCaps="false"
+				android:id="@+id/circleBTN"
+				android:text="Circle"
+				android:layout_weight="1"/>
+		</LinearLayout>
 	</LinearLayout>
 </RelativeLayout>
